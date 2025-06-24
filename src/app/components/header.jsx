@@ -30,14 +30,14 @@ const Header = () => {
   const handleMobileNav = () => setIsMenuOpen(false);
 
   return (
-    <header className="fixed w-full z-50 px-4 sm:px-6 lg:px-8 pt-4">
+    <header className="fixed w-full z-50 px-2 sm:px-4 md:px-6 lg:px-8 pt-2 sm:pt-4">
       <div className="max-w-7xl mx-auto">
         <div
           className={`relative transition-all duration-500 ease-out transform ${
             isScrolled
               ? "backdrop-blur-xl bg-white/20 shadow-2xl shadow-blue-500/10 border border-white/30"
               : "backdrop-blur-md bg-white/10 shadow-xl shadow-black/5 border border-white/20"
-          } rounded-2xl px-6 py-4`}
+          } rounded-2xl px-3 sm:px-4 md:px-6 py-2 sm:py-4`}
           style={{
             background: isScrolled
               ? "linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%)"
@@ -55,7 +55,7 @@ const Header = () => {
                   src="/logo.png"
                   alt="Panache Industries Logo"
                   className={`transition-all duration-300 group-hover:scale-110 ${
-                    isScrolled ? "h-10" : "h-11"
+                    isScrolled ? "h-8 sm:h-10" : "h-9 sm:h-11"
                   } w-auto drop-shadow-lg`}
                 />
                 <div className="absolute inset-0 bg-white/20 rounded-lg blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -63,7 +63,7 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1">
+            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
               {[
                 { path: "/", label: "Home" },
                 { path: "/product-catalogue", label: "Products" },
@@ -72,10 +72,10 @@ const Header = () => {
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-300 group ${
+                  className={`relative px-2 lg:px-4 py-2 rounded-xl text-sm lg:text-base font-medium transition-all duration-300 group ${
                     isActive(item.path)
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
+                      ? "text-white"
+                      : "text-gray-700 hover:text-black"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
@@ -92,17 +92,17 @@ const Header = () => {
               {/* About Us Dropdown */}
               <div className="relative group">
                 <Link
-                  href="/about-us"
-                  className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
-                    isActive("/about-us")
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
+                  href="/about"
+                  className={`relative px-2 lg:px-4 py-2 rounded-xl text-sm lg:text-base font-medium transition-all duration-300 ${
+                    isActive("/about")
+                      ? "text-white"
+                      : "text-gray-700 hover:text-black"
                   }`}
                 >
                   <span className="relative z-10">About Us</span>
                   <div
                     className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                      isActive("/about-us")
+                      isActive("/about")
                         ? "bg-blue-500/20 backdrop-blur-sm shadow-lg"
                         : "bg-transparent group-hover:bg-white/30 group-hover:backdrop-blur-sm group-hover:shadow-md"
                     }`}
@@ -110,7 +110,7 @@ const Header = () => {
                 </Link>
 
                 {/* Dropdown Menu */}
-                <div className="absolute top-full left-0 mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="absolute top-full left-0 mt-2 w-48 lg:w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                   <div className="backdrop-blur-xl bg-white/25 border border-white/30 rounded-2xl shadow-2xl shadow-blue-500/20 p-2">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/30 via-transparent to-transparent pointer-events-none"></div>
                     {[
@@ -127,9 +127,9 @@ const Header = () => {
                       <Link
                         key={item.path}
                         href={item.path}
-                        className="relative block px-4 py-3 text-gray-700 hover:text-blue-600 rounded-xl transition-all duration-200 hover:bg-white/40 hover:backdrop-blur-sm group/item"
+                        className="relative block px-3 lg:px-4 py-2 lg:py-3 text-gray-700 hover:text-black rounded-xl transition-all duration-200 hover:bg-white/40 hover:backdrop-blur-sm group/item"
                       >
-                        <span className="relative z-10 text-sm font-medium">
+                        <span className="relative z-10 text-xs lg:text-sm font-medium">
                           {item.label}
                         </span>
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"></div>
@@ -143,11 +143,11 @@ const Header = () => {
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden relative p-3 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-white/30 hover:backdrop-blur-sm transition-all duration-300 group"
+              className="md:hidden relative p-2 sm:p-3 rounded-xl text-gray-700 hover:text-black hover:bg-white/30 hover:backdrop-blur-sm transition-all duration-300 group"
             >
               <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative z-10">
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </div>
             </button>
           </div>
@@ -156,24 +156,24 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden mt-2 mx-4">
+        <div className="md:hidden mt-2 mx-2 sm:mx-4">
           <div className="backdrop-blur-xl bg-white/25 border border-white/30 rounded-2xl shadow-2xl shadow-blue-500/20 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent pointer-events-none"></div>
-            <nav className="relative flex flex-col p-4 space-y-2">
+            <nav className="relative flex flex-col p-3 sm:p-4 space-y-1 sm:space-y-2">
               {[
                 { path: "/", label: "Home" },
                 { path: "/products", label: "Products" },
-                { path: "/about-us", label: "About Us" },
+                { path: "/about", label: "About Us" },
                 { path: "/contact", label: "Contact Us" },
               ].map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
                   onClick={handleMobileNav}
-                  className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
+                  className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
                     isActive(item.path)
-                      ? "text-blue-600 bg-blue-500/20"
-                      : "text-gray-700 hover:text-blue-600"
+                      ? "text-white bg-blue-500/20"
+                      : "text-gray-700 hover:text-black"
                   }`}
                 >
                   {item.label}
@@ -181,7 +181,7 @@ const Header = () => {
               ))}
 
               {/* Mobile Submenu */}
-              <div className="pl-4 space-y-2 border-l-2 border-white/20 ml-4">
+              <div className="pl-3 sm:pl-4 space-y-1 sm:space-y-2 border-l-2 border-white/20 ml-3 sm:ml-4">
                 {[
                   {
                     path: "/quality-control",
@@ -197,7 +197,7 @@ const Header = () => {
                     key={item.path}
                     href={item.path}
                     onClick={handleMobileNav}
-                    className="block px-3 py-2 text-sm text-gray-600 hover:text-blue-600 rounded-lg hover:bg-white/30 transition-all duration-200"
+                    className="block px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm text-gray-600 hover:text-black rounded-lg hover:bg-white/30 transition-all duration-200"
                   >
                     {item.label}
                   </Link>

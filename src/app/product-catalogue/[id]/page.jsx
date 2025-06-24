@@ -113,13 +113,15 @@ export default function ProductDetailPage({ params }) {
 
   if (!product) {
     return (
-      <div className="max-w-4xl mx-auto py-20 text-center">
-        <h2 className="text-2xl font-bold mb-4">Product Not Found</h2>
+      <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-4xl mx-auto py-10 sm:py-16 md:py-20 text-center px-4">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+          Product Not Found
+        </h2>
         <button
           onClick={() => router.back()}
-          className="inline-flex items-center text-blue-600 hover:underline"
+          className="inline-flex items-center text-blue-600 hover:underline text-sm sm:text-base"
         >
-          <ArrowLeft className="w-5 h-5 mr-2" />
+          <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
           Back to Catalogue
         </button>
       </div>
@@ -136,36 +138,36 @@ export default function ProductDetailPage({ params }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9f2eb] pb-12">
+    <div className="min-h-screen bg-[#f9f2eb] pb-8 sm:pb-12">
       <section
-        className="relative min-h-[70vh] bg-cover bg-center bg-no-repeat flex items-center"
+        className="relative min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] bg-cover bg-center bg-no-repeat flex items-center px-4"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/productbg.jpg')`,
         }}
       >
-        <div className="max-w-6xl mx-auto px-4 text-center text-white relative z-10 w-full">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight uppercase tracking-wider">
+        <div className="max-w-xl sm:max-w-3xl lg:max-w-6xl mx-auto text-center text-white relative z-10 w-full">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight uppercase tracking-wider">
             {product.name}
           </h1>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
             {product.description}
           </p>
         </div>
       </section>
 
-      <div className="max-w-4xl mx-auto mt-8">
-        <div className="flex items-center mb-6">
+      <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-4xl mx-auto mt-6 sm:mt-8 px-4">
+        <div className="flex items-center mb-4 sm:mb-6">
           <button
             onClick={() => router.back()}
-            className="flex items-center text-gray-600 hover:text-gray-800 transition-colors"
+            className="flex items-center text-gray-600 hover:text-gray-800 transition-colors text-sm sm:text-base"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
             BACK
           </button>
         </div>
-        <div className="flex flex-col lg:flex-row h-full gap-8">
+        <div className="flex flex-col lg:flex-row h-full gap-6 sm:gap-8">
           <div className="lg:w-1/2">
-            <div className="aspect-[4/5] mb-4 rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center">
+            <div className="aspect-[4/5] mb-3 sm:mb-4 rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center">
               <img
                 src={product.image}
                 alt={product.name}
@@ -176,17 +178,17 @@ export default function ProductDetailPage({ params }) {
                 }}
               />
               <span
-                className="text-gray-400 text-lg font-semibold"
+                className="text-gray-400 text-base sm:text-lg font-semibold"
                 style={{ display: "none" }}
               >
                 Product Image
               </span>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-1 sm:gap-2">
               {[1, 2, 3].map((_, idx) => (
                 <div
                   key={idx}
-                  className="w-20 h-20 rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center border-2 border-blue-500"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center border-2 border-blue-500"
                 >
                   <img
                     src={product.image}
@@ -205,70 +207,70 @@ export default function ProductDetailPage({ params }) {
                   </span>
                 </div>
               ))}
-              <div className="w-20 h-20 rounded-lg bg-gray-300 flex items-center justify-center text-gray-600 font-semibold">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-300 flex items-center justify-center text-gray-600 font-semibold text-sm sm:text-base">
                 +2
               </div>
             </div>
           </div>
           <div className="lg:w-1/2">
-            <div className="flex justify-between items-start mb-4">
-              <h2 className="text-2xl font-bold text-blue-600 uppercase">
+            <div className="flex justify-between items-start mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-blue-600 uppercase">
                 {product.name}
               </h2>
-              <span className="text-2xl font-bold text-gray-800">
+              <span className="text-xl sm:text-2xl font-bold text-gray-800">
                 {product.price}
               </span>
             </div>
-            <div className="mb-6">
-              <h3 className="font-semibold text-gray-800 mb-2">
+            <div className="mb-4 sm:mb-6">
+              <h3 className="font-semibold text-gray-800 mb-1 sm:mb-2 text-base sm:text-lg">
                 Product Description
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                 {product.fullDescription}
               </p>
             </div>
-            <div className="mb-8">
-              <h3 className="font-semibold text-blue-600 mb-3">
+            <div className="mb-6 sm:mb-8">
+              <h3 className="font-semibold text-blue-600 mb-2 sm:mb-3 text-base sm:text-lg">
                 Technical Specification
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1 sm:space-y-2">
                 {product.specifications.map((spec, idx) => (
-                  <li key={idx} className="text-gray-600">
+                  <li key={idx} className="text-gray-600 text-sm sm:text-base">
                     {spec}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
                   disabled={quantity <= 1}
                 >
-                  <Minus className="w-4 h-4" />
+                  <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
                 </button>
-                <span className="text-xl font-semibold min-w-[2rem] text-center">
+                <span className="text-lg sm:text-xl font-semibold min-w-[1.5rem] sm:min-w-[2rem] text-center text-black">
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100"
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
                 </button>
-                <span className="text-blue-600 font-semibold cursor-pointer hover:underline">
+                <span className="text-blue-600 font-semibold cursor-pointer hover:underline text-sm sm:text-base">
                   Add To Cart
                 </span>
               </div>
-              <button className="text-blue-600 font-semibold hover:underline">
+              <button className="text-blue-600 font-semibold hover:underline text-sm sm:text-base">
                 + Get A Quote
               </button>
               <button
                 onClick={handleDownloadCatalog}
-                className="flex items-center gap-2 text-gray-800 font-semibold hover:underline"
+                className="flex items-center gap-1 sm:gap-2 text-gray-800 font-semibold hover:underline text-sm sm:text-base"
               >
-                <Download className="w-4 h-4" />
+                <Download className="w-3 h-3 sm:w-4 sm:h-4" />
                 DOWNLOAD PRODUCT CATALOGUE
               </button>
             </div>
