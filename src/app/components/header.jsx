@@ -67,7 +67,7 @@ const Header = () => {
               {[
                 { path: "/", label: "Home" },
                 { path: "/product-catalogue", label: "Products" },
-                { path: "/Contact", label: "Contact Us" },
+                { path: "/contact", label: "Contact Us" },
               ].map((item) => (
                 <Link
                   key={item.path}
@@ -119,10 +119,10 @@ const Header = () => {
                         label: "Quality Control",
                       },
                       {
-                        path: "/about-us/infrastructure",
+                        path: "/infrastructure",
                         label: "Infrastructure",
                       },
-                      { path: "/about-us/industries", label: "Industries" },
+                      { path: "/industries", label: "Industries" },
                     ].map((item) => (
                       <Link
                         key={item.path}
@@ -164,7 +164,7 @@ const Header = () => {
                 { path: "/", label: "Home" },
                 { path: "/products", label: "Products" },
                 { path: "/about-us", label: "About Us" },
-                { path: "/Contact", label: "Contact Us" },
+                { path: "/contact", label: "Contact Us" },
               ].map((item) => (
                 <Link
                   key={item.path}
@@ -188,10 +188,10 @@ const Header = () => {
                     label: "Quality Control",
                   },
                   {
-                    path: "/about-us/infrastructure",
+                    path: "/infrastructure",
                     label: "Infrastructure",
                   },
-                  { path: "/about-us/industries", label: "Industries" },
+                  { path: "/industries", label: "Industries" },
                 ].map((item) => (
                   <Link
                     key={item.path}

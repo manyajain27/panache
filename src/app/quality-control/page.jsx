@@ -5,20 +5,13 @@ export default function QualityControlPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
-        {/* Background Image Placeholder */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-200 via-orange-300 to-gray-300">
-          {/* Abstract curved shapes to mimic the design */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full">
-              <div className="absolute top-1/3 left-1/4 w-64 h-96 bg-orange-400 rounded-full transform rotate-45 opacity-80"></div>
-              <div className="absolute top-1/2 right-1/3 w-48 h-72 bg-gray-400 rounded-full transform -rotate-12 opacity-70"></div>
-              <div className="absolute bottom-1/4 left-1/2 w-32 h-48 bg-orange-300 rounded-full transform rotate-30 opacity-60"></div>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative z-10 text-center text-white px-4">
+      <section
+        className="relative min-h-[100vh] bg-cover bg-center bg-no-repeat flex items-center justify-center bg-[#f9f2eb]"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(251, 146, 60, 0.1), rgba(253, 186, 116, 0.1)), url('/qbg.jpg')`,
+        }}
+      >
+        <div className="relative z-10 text-center text-white px-4 w-full">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-wide">
             QUALITY CONTROL
           </h1>
@@ -30,87 +23,70 @@ export default function QualityControlPage() {
       </section>
 
       {/* Quality Process Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-8">
+      <section className="py-20 bg-[#f9f2eb]">
+        <div className="max-w-6xl mx-auto px-12">
           {/* Header */}
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-blue-600 mb-6">
+          <div className="mb-16">
+            <h2 className="text-5xl font-bold text-blue-500 mb-8 tracking-wide">
               QUALITY PROCESS
             </h2>
-            <div className="w-full h-px bg-blue-600 mb-8"></div>
-            <p className="text-gray-700 text-center max-w-md mx-auto leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, aliquam
+            <div className="w-full h-1 bg-blue-500 mb-12"></div>
+            <p className="text-gray-700 text-lg max-w-3xl leading-relaxed">
+              lorem ipsum dolor sit amet, consectetur adipiscing elit. aliquam
               aliquam nisl nisl, eu imperdiet ex ullamcorper eu
             </p>
           </div>
 
-          <div className="space-y-12">
-            {/* Step 1 */}
-            <div className="flex items-start gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-blue-600 mb-4">
-                  STEP 1
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                  aliquam aliquam nisl nisl, eu imperdiet ex ullamcorper eu
-                </p>
-              </div>
-              <div className="w-48 h-24">
-                <div className="bg-gradient-to-br from-gray-700 to-gray-900 h-full flex items-center justify-center">
-                  <div className="flex space-x-1">
-                    {[...Array(10)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-1 bg-white/70 transform rotate-12"
-                        style={{ height: `${16 + (i % 4) * 8}px` }}
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="w-full h-px bg-blue-400 my-8"></div>
 
-            <div className="w-full h-px bg-blue-300"></div>
+          <div className="space-y-0">
+            {/* Step 1 */}
+            <div className="flex items-center gap-8">
+              <div className="flex-1 flex items-center">
+                <span className="text-lg font-bold text-blue-600 mr-4 min-w-max">
+                  STEP 1
+                </span>
+                <span className="text-base text-gray-700">
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  aliquam aliquam nisi nisi, eu imperdiet ex ullamcorper eu
+                </span>
+              </div>
+              <div
+                className="w-48 h-32 flex-shrink-0 rounded bg-cover bg-center"
+                style={{ backgroundImage: "url('/q1.jpg')" }}
+              />
+            </div>
+            <div className="w-full h-px bg-blue-400 my-8"></div>
 
             {/* Step 2 */}
-            <div className="flex items-start gap-8">
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold text-blue-600 mb-4">
+            <div className="flex items-center gap-8">
+              <div className="flex-1 flex items-center">
+                <span className="text-lg font-bold text-blue-600 mr-4 min-w-max">
                   STEP 2
-                </h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                </span>
+                <span className="text-base text-gray-700">
+                  lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   aliquam aliquam nisl nisl, eu imperdiet ex ullamcorper eu
-                </p>
+                </span>
               </div>
-              <div className="w-48 h-24">
-                <div className="bg-gradient-to-br from-gray-700 to-gray-900 h-full flex items-center justify-center">
-                  <div className="flex space-x-1">
-                    {[...Array(12)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="w-px bg-white/70 h-16 transform rotate-12"
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <div
+                className="w-48 h-32 flex-shrink-0 rounded bg-cover bg-center"
+                style={{ backgroundImage: "url('/q1.jpg')" }}
+              />
             </div>
-
-            <div className="w-full h-px bg-blue-300"></div>
+            <div className="w-full h-px bg-blue-400 my-8"></div>
           </div>
         </div>
       </section>
 
       {/* Certifications Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-8">
+      <section className="py-36 bg-[#FFFDF9]">
+        <div className="max-w-6xl mx-auto px-8">
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-6xl font-medium text-gray-800 mb-4">
               CERTIFICATIONS
             </h2>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 mb-8 text-2xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, aliquam
               aliquam nisl nisl, eu imperdiet ex ullamcorper eu.
             </p>
@@ -127,8 +103,10 @@ export default function QualityControlPage() {
                   <div className="absolute -bottom-1 -right-1 w-4 h-6 bg-orange-500 transform rotate-12"></div>
                 </div>
               </div>
-              <h3 className="font-bold text-gray-800 mb-2">BIS CERTIFIED</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="font-medium text-gray-800 mb-2 text-2xl">
+                BIS CERTIFIED
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 certification description/ metrics etc lorem ipsum dolor sit
                 amet,
               </p>
@@ -144,8 +122,10 @@ export default function QualityControlPage() {
                   <div className="absolute -bottom-1 -right-1 w-4 h-6 bg-orange-500 transform rotate-12"></div>
                 </div>
               </div>
-              <h3 className="font-bold text-gray-800 mb-2">ISO CERTIFIED</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="font-medium text-gray-800 mb-2 text-2xl">
+                ISO CERTIFIED
+              </h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 certification description/ metrics etc lorem ipsum dolor sit
                 amet,
               </p>
@@ -161,8 +141,8 @@ export default function QualityControlPage() {
                   <div className="absolute -bottom-1 -right-1 w-4 h-6 bg-orange-500 transform rotate-12"></div>
                 </div>
               </div>
-              <h3 className="font-bold text-gray-800 mb-2">OTHER</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <h3 className="font-medium text-gray-800 mb-2 text-2xl">OTHER</h3>
+              <p className="text-lg text-gray-600 leading-relaxed">
                 certification description/ metrics etc lorem ipsum dolor sit
                 amet,
               </p>
@@ -172,16 +152,16 @@ export default function QualityControlPage() {
       </section>
 
       {/* Lab Equipment Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-8">
-          <div className="flex gap-12">
-            <div className="w-1/3">
-              <h2 className="text-4xl font-bold text-blue-600 mb-4 leading-tight">
+      <section className="py-24 bg-[#f9f2eb]">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="flex gap-12 items-end">
+            <div className="w-1/3 self-end">
+              <h2 className="text-6xl font-medium text-blue-600 mb-4 leading-tight">
                 LAB
                 <br />
                 EQUIPMENT
               </h2>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-xl">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, aliquam
                 aliquam nisl nisl, eu imperdiet ex ullamcorper eu.
               </p>
@@ -189,34 +169,26 @@ export default function QualityControlPage() {
 
             <div className="w-2/3">
               <div className="grid grid-cols-2 gap-3">
-                {/* Lab Equipment Image 1 - Bronze/brown equipment */}
-                <div className="h-32 bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
-                  <span className="text-white text-xs opacity-75">
-                    Equipment Image 1
-                  </span>
-                </div>
-
-                {/* Lab Equipment Image 2 - Blue light rays */}
-                <div className="h-32 bg-gradient-to-br from-blue-800 to-purple-900 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform rotate-12"></div>
-                  <span className="text-white text-xs opacity-75 relative z-10">
-                    Equipment Image 2
-                  </span>
-                </div>
-
-                {/* Lab Equipment Image 3 - Blue digital/tech */}
-                <div className="h-32 bg-gradient-to-br from-cyan-600 to-blue-800 flex items-center justify-center">
-                  <span className="text-white text-xs opacity-75">
-                    Equipment Image 3
-                  </span>
-                </div>
-
-                {/* Lab Equipment Image 4 - Blue geometric */}
-                <div className="h-32 bg-gradient-to-br from-blue-600 to-indigo-800 flex items-center justify-center">
-                  <span className="text-white text-xs opacity-75">
-                    Equipment Image 4
-                  </span>
-                </div>
+                {/* Lab Equipment Image 1 - q2.jpg */}
+                <div
+                  className="h-56 w-full bg-cover bg-center shadow"
+                  style={{ backgroundImage: "url('/q2.jpg')" }}
+                />
+                {/* Lab Equipment Image 2 - q3.jpg */}
+                <div
+                  className="h-56 w-full bg-cover bg-center shadow"
+                  style={{ backgroundImage: "url('/q3.jpg')" }}
+                />
+                {/* Lab Equipment Image 3 - q4.jpg */}
+                <div
+                  className="h-56 w-full bg-cover bg-center shadow"
+                  style={{ backgroundImage: "url('/q4.jpg')" }}
+                />
+                {/* Lab Equipment Image 4 - q5.jpg */}
+                <div
+                  className="h-56 w-full bg-cover bg-center shadow"
+                  style={{ backgroundImage: "url('/q5.jpg')" }}
+                />
               </div>
             </div>
           </div>
