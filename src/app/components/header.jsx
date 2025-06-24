@@ -162,7 +162,7 @@ const Header = () => {
             <nav className="relative flex flex-col p-3 sm:p-4 space-y-1 sm:space-y-2">
               {[
                 { path: "/", label: "Home" },
-                { path: "/products", label: "Products" },
+                { path: "/product-catalogue", label: "Products" },
                 { path: "/about", label: "About Us" },
                 { path: "/contact", label: "Contact Us" },
               ].map((item) => (

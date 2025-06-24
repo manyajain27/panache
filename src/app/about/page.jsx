@@ -40,7 +40,7 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative min-h-[100vh] flex items-center overflow-hidden">
+      <div className="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[100vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="/about.jpg"
@@ -48,11 +48,11 @@ const AboutPage = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative z-10 container mx-auto px-6 flex flex-col items-center">
-          <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 text-center">
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 flex flex-col items-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 text-center">
             ABOUT US
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl text-center">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 max-w-xl md:max-w-2xl text-center px-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
             aliquam nisi nisi, eu imperdiet ex ullamcorper eu. Pellentesque quis
             turpis cursus.
@@ -61,11 +61,11 @@ const AboutPage = () => {
       </div>
 
       {/* Our Story Timeline Section */}
-      <div className="py-20 bg-[#F7F3ED]">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div className="py-12 sm:py-16 md:py-20 bg-[#F7F3ED]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left side - Image */}
-            <div className="relative h-[400px]">
+            <div className="relative h-[300px] sm:h-[350px] md:h-[400px] w-full">
               <img
                 src="/h2.jpg"
                 alt="Timeline Visual"
@@ -75,24 +75,24 @@ const AboutPage = () => {
 
             {/* Right side - Story */}
             <div>
-              <h2 className="text-4xl font-bold text-blue-600 mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-blue-600 mb-4 sm:mb-6">
                 OUR STORY
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu. Pellentesque
                 quis turpis cursus.
               </p>
-              <p className="text-gray-500 mb-12">
+              <p className="text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu. Pellentesque
                 quis turpis cursus.
               </p>
 
               {/* Timeline */}
-              <div className="relative mt-16">
+              <div className="relative mt-10 sm:mt-12 md:mt-16">
                 {/* Timeline line */}
-                <div className="absolute left-0 w-full h-[1px] bg-black/60 top-[22px]"></div>
+                <div className="absolute left-0 w-full h-[1px] bg-black/60 top-[18px] sm:top-[22px]"></div>
 
                 {/* Timeline points */}
                 <div className="relative flex justify-between items-start">
@@ -100,19 +100,19 @@ const AboutPage = () => {
                     <div key={index} className="flex flex-col items-center">
                       {/* Vertical line for first point */}
                       {index === 0 && (
-                        <div className="absolute h-8 w-[1px] bg-black/60 top-[-10px]"></div>
+                        <div className="absolute h-6 sm:h-8 w-[1px] bg-black/60 top-[-8px] sm:top-[-10px]"></div>
                       )}
 
                       {/* Timeline dot */}
                       <div
-                        className={`w-2 h-2 ${
+                        className={`w-1.5 h-1.5 sm:w-2 sm:h-2 ${
                           index === 0 ? "bg-black" : "bg-black/60"
-                        } rounded-full mb-3 mt-5`}
+                        } rounded-full mb-2 sm:mb-3 mt-4 sm:mt-5`}
                       ></div>
 
                       {/* Year text */}
                       <p
-                        className={`text-sm font-medium ${
+                        className={`text-xs sm:text-sm font-medium ${
                           index === 0 ? "text-black" : "text-black/60"
                         }`}
                       >
@@ -121,7 +121,7 @@ const AboutPage = () => {
 
                       {/* Event text for first point */}
                       {index === 0 && (
-                        <div className="absolute top-[-30px] left-[-20px] whitespace-nowrap">
+                        <div className="absolute top-[-25px] sm:top-[-30px] left-[-15px] sm:left-[-20px] whitespace-nowrap">
                           <p className="text-xs text-black/60">
                             EVENT AT THIS TIME
                           </p>
@@ -137,17 +137,17 @@ const AboutPage = () => {
       </div>
 
       {/* Mission and Vision Section */}
-      <div className="py-20 bg-[#FFFDF9]">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20">
+      <div className="py-12 sm:py-16 md:py-20 bg-[#FFFDF9]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-4xl lg:max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-12 lg:gap-x-20">
             {/* Mission */}
             <div className="text-center">
-              <h3 className="text-4xl font-medium mb-10 text-black tracking-wider">
+              <h3 className="text-3xl sm:text-4xl font-medium mb-6 sm:mb-10 text-black tracking-wider">
                 OUR MISSION
               </h3>
-              <div className="flex justify-center mb-10">
+              <div className="flex justify-center mb-6 sm:mb-10">
                 <svg
-                  className="w-24 h-24"
+                  className="w-20 h-20 sm:w-24 sm:h-24"
                   viewBox="0 0 100 80"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -209,10 +209,11 @@ const AboutPage = () => {
                     stroke="#F97316"
                     strokeWidth="2"
                     strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <p className="font-serif text-lg text-gray-500 max-w-md mx-auto leading-snug">
+              <p className="font-serif text-base sm:text-lg text-gray-500 max-w-xs sm:max-w-md mx-auto leading-snug">
                 lorem ipsum dolor sit amet, consectetur adipiscing elit. aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu.
               </p>
@@ -220,12 +221,12 @@ const AboutPage = () => {
 
             {/* Vision */}
             <div className="text-center">
-              <h3 className="text-4xl font-medium mb-10 text-black tracking-wider">
+              <h3 className="text-3xl sm:text-4xl font-medium mb-6 sm:mb-10 text-black tracking-wider">
                 OUR VISION
               </h3>
-              <div className="flex justify-center mb-10">
+              <div className="flex justify-center mb-6 sm:mb-10">
                 <svg
-                  className="w-24 h-24"
+                  className="w-20 h-20 sm:w-24 sm:h-24"
                   viewBox="0 0 64 64"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -249,7 +250,7 @@ const AboutPage = () => {
                   />
                 </svg>
               </div>
-              <p className="font-serif text-lg text-gray-500 max-w-md mx-auto leading-snug">
+              <p className="font-serif text-base sm:text-lg text-gray-500 max-w-xs sm:max-w-md mx-auto leading-snug">
                 lorem ipsum dolor sit amet, consectetur adipiscing elit. aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu.
               </p>
@@ -259,40 +260,40 @@ const AboutPage = () => {
       </div>
 
       {/* Our Values Section */}
-      <div className="py-20 bg-[#F7F3ED]">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-6xl font-medium text-blue-600 mb-4">
+      <div className="py-12 sm:py-16 md:py-20 bg-[#F7F3ED]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-blue-600 mb-3 sm:mb-4">
               OUR VALUES
             </h2>
-            <p className="text-gray-600 mb-12 text-xl">
+            <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-12">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit aliquam
               aliquam nisi nisi, eu imperdiet ex ullamcorper eu.
             </p>
 
-            <div className="flex flex-col md:flex-row gap-16 items-start">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16 items-center md:items-start">
               {/* Left side - Logo */}
-              <div className="md:w-[343px] flex-shrink-0">
+              <div className="w-48 sm:w-64 md:w-[280px] lg:w-[343px] flex-shrink-0">
                 <img
                   src="/logo.png"
                   alt="Company Logo"
-                  className="w-[343px] h-auto"
+                  className="w-full h-auto"
                 />
               </div>
 
               {/* Right side - Values */}
-              <div className="flex-1">
-                <div className="space-y-3">
+              <div className="flex-1 w-full">
+                <div className="space-y-2 sm:space-y-3">
                   {values.map((value, index) => (
                     <div key={index} className="border-b border-gray-300">
                       <button
                         onClick={() => handleValueClick(value.title)}
-                        className="w-full py-3 flex items-center justify-between text-left group"
+                        className="w-full py-2 sm:py-3 flex items-center justify-between text-left group"
                       >
-                        <span className="text-gray-800 font-[600] text-2xl">
+                        <span className="text-gray-800 font-[600] text-lg sm:text-xl md:text-2xl">
                           {value.title}
                         </span>
-                        <span className="text-gray-400 text-xl">
+                        <span className="text-gray-400 text-lg sm:text-xl">
                           {openValue === value.title ? "×" : "+"}
                         </span>
                       </button>
@@ -304,7 +305,7 @@ const AboutPage = () => {
                         }`}
                       >
                         <div className="overflow-hidden">
-                          <p className="pb-3 text-gray-600">
+                          <p className="pb-2 sm:pb-3 text-gray-600 text-sm sm:text-base">
                             {value.description}
                           </p>
                         </div>
@@ -319,22 +320,22 @@ const AboutPage = () => {
       </div>
 
       {/* What We Offer Section */}
-      <div className="py-20 bg-[#F7F3ED]">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-6xl font-medium text-black mb-4 text-center">
+      <div className="py-12 sm:py-16 md:py-20 bg-[#F7F3ED]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-black mb-3 sm:mb-4 text-center">
               WHAT WE OFFER?
             </h2>
-            <p className="text-xl text-black/70 mb-12 text-center max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-black/70 mb-8 sm:mb-12 text-center max-w-2xl mx-auto px-2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit aliquam
               aliquam nisi nisi, eu imperdiet ex ullamcorper eu pellentesque
               quis turpis cursus.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-center">
               <Link
                 href="/quality-control"
-                className="group relative overflow-hidden w-[360px] h-[472px] mx-auto"
+                className="group relative overflow-hidden w-full max-w-[360px] h-[350px] sm:h-[400px] md:h-[472px] mx-auto"
               >
                 <div className="w-full h-full">
                   <img
@@ -343,15 +344,15 @@ const AboutPage = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/20 flex flex-col justify-between p-6">
-                  <h3 className="text-2xl font-semibold text-white">
+                <div className="absolute inset-0 bg-black/20 flex flex-col justify-between p-4 sm:p-6">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white">
                     QUALITY
                     <br />
                     CONTROL
                   </h3>
                   <div className="self-end">
-                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-black">→</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center">
+                      <span className="text-black text-lg sm:text-xl">→</span>
                     </div>
                   </div>
                 </div>
@@ -359,7 +360,7 @@ const AboutPage = () => {
 
               <Link
                 href="/infrastructure"
-                className="group relative overflow-hidden w-[360px] h-[472px] mx-auto"
+                className="group relative overflow-hidden w-full max-w-[360px] h-[350px] sm:h-[400px] md:h-[472px] mx-auto"
               >
                 <div className="w-full h-full">
                   <img
@@ -368,15 +369,15 @@ const AboutPage = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/20 flex flex-col justify-between p-6">
-                  <h3 className="text-2xl font-semibold text-white">
+                <div className="absolute inset-0 bg-black/20 flex flex-col justify-between p-4 sm:p-6">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white">
                     OUR
                     <br />
                     INFRASTRUCTRE
                   </h3>
                   <div className="self-end">
-                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-black">→</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center">
+                      <span className="text-black text-lg sm:text-xl">→</span>
                     </div>
                   </div>
                 </div>
@@ -384,7 +385,7 @@ const AboutPage = () => {
 
               <Link
                 href="/industries"
-                className="group relative overflow-hidden w-[360px] h-[472px] mx-auto"
+                className="group relative overflow-hidden w-full max-w-[360px] h-[350px] sm:h-[400px] md:h-[472px] mx-auto"
               >
                 <div className="w-full h-full">
                   <img
@@ -393,15 +394,15 @@ const AboutPage = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute inset-0 bg-black/20 flex flex-col justify-between p-6">
-                  <h3 className="text-2xl font-semibold text-white">
+                <div className="absolute inset-0 bg-black/20 flex flex-col justify-between p-4 sm:p-6">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white">
                     INDUSTRIES WE
                     <br />
                     SERVE
                   </h3>
                   <div className="self-end">
-                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
-                      <span className="text-black">→</span>
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center">
+                      <span className="text-black text-lg sm:text-xl">→</span>
                     </div>
                   </div>
                 </div>
@@ -412,16 +413,16 @@ const AboutPage = () => {
       </div>
 
       {/* Our Locations Section */}
-      <div className="py-20 bg-[#F7F3ED]">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="relative mb-12">
+      <div className="py-12 sm:py-16 md:py-20 bg-[#F7F3ED]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-xl md:max-w-3xl lg:max-w-6xl">
+          <div className="relative mb-8 sm:mb-12">
             <img
               src="/contact.jpg"
               alt="Our Locations"
-              className="w-full h-[400px] object-cover"
+              className="w-full h-[250px] sm:h-[300px] md:h-[400px] object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-start p-12">
-              <h2 className="text-6xl font-bold text-white leading-none">
+            <div className="absolute inset-0 bg-black/30 flex items-center justify-start p-6 sm:p-8 md:p-12">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight sm:leading-none">
                 OUR
                 <br />
                 LOCATIONS
@@ -429,30 +430,32 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-6 lg:gap-x-8">
+            <div className="md:border-r md:border-gray-300 md:pr-6 lg:pr-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Office 1
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                 lorem ipsum dolor sit amet, consectetur adipiscing elit. aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu. pellentesque
                 quis turpis cursus.
               </p>
             </div>
-            <div className="border-l border-gray-300 pl-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <div className="md:border-r md:border-gray-300 md:pl-6 md:pr-6 lg:pl-8 lg:pr-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Office 2
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                 lorem ipsum dolor sit amet, consectetur adipiscing elit. aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu. pellentesque
                 quis turpis cursus.
               </p>
             </div>
-            <div className="border-l border-gray-300 pl-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Plant 1</h3>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="md:pl-6 lg:pl-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+                Plant 1
+              </h3>
+              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
                 lorem ipsum dolor sit amet, consectetur adipiscing elit. aliquam
                 aliquam nisi nisi, eu imperdiet ex ullamcorper eu. pellentesque
                 quis turpis cursus.
@@ -463,57 +466,65 @@ const AboutPage = () => {
       </div>
 
       {/* Reach Out To Us Section */}
-      <div className="py-20 bg-[#F7F3ED]">
-        <div className="container mx-auto px-6 max-w-2xl">
-          <h2 className="text-4xl font-bold text-center text-blue-600 mb-12">
+      <div className="py-12 sm:py-16 md:py-20 bg-[#F7F3ED]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-lg md:max-w-2xl">
+          <h2 className="text-3xl sm:text-4xl font-bold text-center text-blue-600 mb-8 sm:mb-12">
             REACH OUT TO US
           </h2>
-          <div className="grid grid-cols-4 gap-y-4">
-            <div className="text-right pr-8">
-              <label className="text-gray-700 font-medium">NAME</label>
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-y-4 sm:gap-y-6">
+            <div className="text-left sm:text-right sm:pr-4 md:pr-8 flex items-center">
+              <label className="text-gray-700 font-medium text-sm sm:text-base">
+                NAME
+              </label>
             </div>
-            <div className="col-span-3">
+            <div className="sm:col-span-3">
               <input
                 type="text"
-                className="w-full p-2 border border-gray-300 rounded text-black"
+                className="w-full p-2 sm:p-2.5 border border-gray-300 rounded text-black text-sm sm:text-base"
                 placeholder="name"
               />
             </div>
 
-            <div className="text-right pr-8">
-              <label className="text-gray-700 font-medium">EMAIL</label>
+            <div className="text-left sm:text-right sm:pr-4 md:pr-8 flex items-center">
+              <label className="text-gray-700 font-medium text-sm sm:text-base">
+                EMAIL
+              </label>
             </div>
-            <div className="col-span-3">
+            <div className="sm:col-span-3">
               <input
                 type="email"
-                className="w-full p-2 border border-gray-300 rounded text-black"
+                className="w-full p-2 sm:p-2.5 border border-gray-300 rounded text-black text-sm sm:text-base"
                 placeholder="email"
               />
             </div>
 
-            <div className="text-right pr-8">
-              <label className="text-gray-700 font-medium">NUMBER</label>
+            <div className="text-left sm:text-right sm:pr-4 md:pr-8 flex items-center">
+              <label className="text-gray-700 font-medium text-sm sm:text-base">
+                NUMBER
+              </label>
             </div>
-            <div className="col-span-3">
+            <div className="sm:col-span-3">
               <input
                 type="tel"
-                className="w-full p-2 border border-gray-300 rounded text-black"
+                className="w-full p-2 sm:p-2.5 border border-gray-300 rounded text-black text-sm sm:text-base"
                 placeholder="number"
               />
             </div>
 
-            <div className="text-right pr-8">
-              <label className="text-gray-700 font-medium">MESSAGE</label>
+            <div className="text-left sm:text-right sm:pr-4 md:pr-8 self-start pt-2">
+              <label className="text-gray-700 font-medium text-sm sm:text-base">
+                MESSAGE
+              </label>
             </div>
-            <div className="col-span-3">
+            <div className="sm:col-span-3">
               <textarea
-                className="w-full p-2 border border-gray-300 rounded h-24 resize-none text-black"
+                className="w-full p-2 sm:p-2.5 border border-gray-300 rounded h-24 sm:h-28 resize-none text-black text-sm sm:text-base"
                 placeholder="type here..."
               ></textarea>
             </div>
 
-            <div className="col-span-4 flex justify-center mt-6">
-              <button className="bg-blue-600 text-white px-10 py-2 rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium">
+            <div className="col-span-1 sm:col-span-4 flex justify-center mt-4 sm:mt-6">
+              <button className="bg-blue-600 text-white px-8 sm:px-10 py-2 sm:py-2.5 rounded-md hover:bg-blue-700 transition-colors duration-300 font-medium text-sm sm:text-base">
                 SUBMIT
               </button>
             </div>
