@@ -29,8 +29,20 @@ const Header = () => {
   // Helper for closing menu on mobile navigation
   const handleMobileNav = () => setIsMenuOpen(false);
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('header')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
   return (
-    <header className="fixed w-full z-50 px-2 sm:px-4 md:px-6 lg:px-8 pt-2 sm:pt-4">
+    <header className="fixed w-full z-[9999] px-2 sm:px-4 md:px-6 lg:px-8 pt-2 sm:pt-4">
       <div className="max-w-7xl mx-auto">
         <div
           className={`relative transition-all duration-500 ease-out transform ${
@@ -49,7 +61,7 @@ const Header = () => {
 
           <div className="relative flex justify-between items-center">
             {/* Logo */}
-            <Link href="/" className="flex items-center group">
+            <Link href="/" className="flex items-center group relative z-10">
               <div className="relative">
                 <img
                   src="/logo.png"
@@ -63,11 +75,9 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 relative z-10">
               {[
                 { path: "/", label: "Home" },
-                { path: "/product-catalogue", label: "Products" },
-                { path: "/contact", label: "Contact Us" },
               ].map((item) => (
                 <Link
                   key={item.path}
@@ -110,7 +120,7 @@ const Header = () => {
                 </Link>
 
                 {/* Dropdown Menu */}
-                <div className="absolute top-full left-0 mt-2 w-48 lg:w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="absolute top-full left-0 mt-2 w-48 lg:w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[10000]">
                   <div className="backdrop-blur-xl bg-white/25 border border-white/30 rounded-2xl shadow-2xl shadow-blue-500/20 p-2">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/30 via-transparent to-transparent pointer-events-none"></div>
                     {[
@@ -138,15 +148,41 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+
+              {[
+                { path: "/product-catalogue", label: "Our Products" },
+                { path: "/contact", label: "Contact Us" },
+              ].map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={`relative px-2 lg:px-4 py-2 rounded-xl text-sm lg:text-base font-medium transition-all duration-300 group ${
+                    isActive(item.path)
+                      ? "text-white"
+                      : "text-gray-700 hover:text-black"
+                  }`}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <div
+                    className={`absolute inset-0 rounded-xl transition-all duration-300 ${
+                      isActive(item.path)
+                        ? "bg-blue-500/20 backdrop-blur-sm shadow-lg"
+                        : "bg-transparent group-hover:bg-white/30 group-hover:backdrop-blur-sm group-hover:shadow-md"
+                    }`}
+                  ></div>
+                </Link>
+              ))}
             </nav>
 
             {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden relative p-2 sm:p-3 rounded-xl text-gray-700 hover:text-black hover:bg-white/30 hover:backdrop-blur-sm transition-all duration-300 group"
+              className="md:hidden relative p-2 sm:p-3 rounded-xl text-gray-700 hover:text-black hover:bg-white/30 hover:backdrop-blur-sm transition-all duration-300 group z-[10001]"
+              aria-label="Toggle mobile menu"
+              type="button"
             >
               <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative z-10">
+              <div className="relative z-10 flex items-center justify-center">
                 {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </div>
             </button>
@@ -155,32 +191,40 @@ const Header = () => {
       </div>
 
       {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden mt-2 mx-2 sm:mx-4">
+      <div className={`md:hidden transition-all duration-300 ease-in-out ${
+        isMenuOpen 
+          ? 'opacity-100 visible transform translate-y-0' 
+          : 'opacity-0 invisible transform -translate-y-2'
+      }`}>
+        <div className="mt-2 mx-2 sm:mx-4 relative z-[9998]">
           <div className="backdrop-blur-xl bg-white/25 border border-white/30 rounded-2xl shadow-2xl shadow-blue-500/20 overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent pointer-events-none"></div>
             <nav className="relative flex flex-col p-3 sm:p-4 space-y-1 sm:space-y-2">
-              {[
-                { path: "/", label: "Home" },
-                { path: "/product-catalogue", label: "Products" },
-                { path: "/about", label: "About Us" },
-                { path: "/contact", label: "Contact Us" },
-              ].map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  onClick={handleMobileNav}
-                  className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
-                    isActive(item.path)
-                      ? "text-white bg-blue-500/20"
-                      : "text-gray-700 hover:text-black"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              <Link
+                href="/"
+                onClick={handleMobileNav}
+                className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
+                  isActive("/")
+                    ? "text-white bg-blue-500/20"
+                    : "text-gray-700 hover:text-black"
+                }`}
+              >
+                Home
+              </Link>
 
-              {/* Mobile Submenu */}
+              <Link
+                href="/about"
+                onClick={handleMobileNav}
+                className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
+                  isActive("/about")
+                    ? "text-white bg-blue-500/20"
+                    : "text-gray-700 hover:text-black"
+                }`}
+              >
+                About Us
+              </Link>
+
+              {/* Mobile Submenu under About Us */}
               <div className="pl-3 sm:pl-4 space-y-1 sm:space-y-2 border-l-2 border-white/20 ml-3 sm:ml-4">
                 {[
                   {
@@ -203,10 +247,34 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
+
+              <Link
+                href="/product-catalogue"
+                onClick={handleMobileNav}
+                className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
+                  isActive("/product-catalogue")
+                    ? "text-white bg-blue-500/20"
+                    : "text-gray-700 hover:text-black"
+                }`}
+              >
+                Our Products
+              </Link>
+
+              <Link
+                href="/contact"
+                onClick={handleMobileNav}
+                className={`px-3 sm:px-4 py-2 sm:py-3 rounded-xl text-sm font-medium transition-all duration-300 hover:bg-white/40 hover:backdrop-blur-sm ${
+                  isActive("/contact")
+                    ? "text-white bg-blue-500/20"
+                    : "text-gray-700 hover:text-black"
+                }`}
+              >
+                Contact Us
+              </Link>
             </nav>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };
